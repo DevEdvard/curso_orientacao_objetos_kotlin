@@ -3,52 +3,49 @@ fun main() {
     testaCopiasEReferencias()
 }
 
-class Conta() {
-    private var titular: String = ""
-    private var numero: Int = 0
-    private var saldo: Double = 0.0
+class Conta(val titular: String, val numero: Int, saldo: Double) {
+    var saldo: Double = saldo
+        private set
 
-    constructor(titular: String, numero: Int, saldo: Double) : this() {
-        this.titular = titular
-        this.numero = numero
-        this.saldo = saldo
-    }
+//    constructor(titular: String, numero: Int, saldo: Double) : this() {
+//        this.titular = titular
+//        this.numero = numero
+//        this.saldo = saldo
+//    }
 
     fun depositar(valor: Double) {
-        saldo += valor
+        if (valor > 0) {
+            saldo = saldo.plus(valor)
+        }
     }
 
     fun sacar(valor: Double) {
         if (saldo >= valor) {
-            saldo -= valor
+            saldo = saldo.minus(valor)
         }
     }
 
     fun transferir(valor: Double, destino: Conta): Boolean {
         if (saldo >= valor) {
-            saldo -= valor
+            saldo = saldo.minus(valor)
             destino.depositar(valor)
             return true
         }
         return false
     }
-
-    fun getSaldo(): Double {
-        return saldo
-    }
 }
 
 private fun testaCopiasEReferencias() {
-    val contaEduardo = Conta("Eduardo", 1000, 300.0)
+    val contaEduardo = Conta(titular = "Eduardo",numero =  1000,saldo =  300.0)
 
     val contaAlex = Conta("Alex", 1001, 3000.0)
 
 //    println(contaEduardo.titular)
 //    println(contaAlex.titular)
 
-    println(contaEduardo.getSaldo())
+    println(contaEduardo.saldo)
     contaEduardo.depositar(70.0)
-    println(contaEduardo.getSaldo())
+    println(contaEduardo.saldo)
 
 }
 
