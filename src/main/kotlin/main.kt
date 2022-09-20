@@ -5,10 +5,8 @@ fun main() {
         "111.111.111-11",
         1000.0)
 
-    println("Nome: ${eduardo.nome}")
-    println("CPF: ${eduardo.cpf}")
-    println("Salario: ${eduardo.salario}")
-    println("Bonificação: ${eduardo.bonoficacao()}")
+    eduardo.retornaDados()
+    println()
 
     val fran = Gerente(
         "Fran",
@@ -17,15 +15,30 @@ fun main() {
         1234
     )
 
-    println("Nome: ${fran.nome}")
-    println("CPF: ${fran.cpf}")
-    println("Salario: ${fran.salario}")
-    println("Bonificação: ${fran.bonoficacao()}")
+    fran.retornaDados()
 
     if(fran.autentica(1234)){
         println("Autenticou com sucesso!")
     } else {
         println("Falha na autentificação")
     }
+    println()
+
+    val gui = Diretor(
+        "Gui",
+        "222.222.222-22",
+        4000.0,
+        12345,
+        2000.0
+    )
+
+    gui.retornaDados()
+
+    if(gui.autentica(1234)){
+        println("Autenticou com sucesso!")
+    } else {
+        println("Falha na autentificação")
+    }
+    println()
 }
 
