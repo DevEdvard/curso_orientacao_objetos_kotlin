@@ -6,5 +6,9 @@ fun testaAutenticacao() {
         1000
     )
 
-    SistemaInterno().entra(eduardo, 1000)
+    val cliente = Cliente("", "", 1)
+
+    val sistemaInterno = SistemaInterno()
+    sistemaInterno.entra(eduardo, 1000)
+    sistemaInterno.entra(cliente, 1)
 }
