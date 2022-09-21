@@ -1,7 +1,7 @@
 fun testaCopiasEReferencias() {
-    val contaEduardo = Conta(titular = "Eduardo",numero =  1000,saldo =  300.0)
+    val contaEduardo = ContaCorrente(titular = "Eduardo",numero =  1000)
 
-    val contaAlex = Conta("Alex", 1001, 3000.0)
+    val contaAlex = ContaCorrente("Alex", 1001)
 
 //    println(contaEduardo.titular)
 //    println(contaAlex.titular)

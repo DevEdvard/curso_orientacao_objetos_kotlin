@@ -1,6 +1,6 @@
-class Conta(val titular: String, val numero: Int, saldo: Double) {
-    var saldo: Double = saldo
-        private set
+abstract class Conta(val titular: String, val numero: Int) {
+    var saldo: Double = 0.0
+        protected set
 
 //    constructor(titular: String, numero: Int, saldo: Double) : this() {
 //        this.titular = titular
@@ -8,19 +8,15 @@ class Conta(val titular: String, val numero: Int, saldo: Double) {
 //        this.saldo = saldo
 //    }
 
-    fun depositar(valor: Double) {
+    open fun depositar(valor: Double) {
         if (valor > 0) {
             saldo = saldo.plus(valor)
         }
     }
 
-    fun sacar(valor: Double) {
-        if (saldo >= valor) {
-            saldo = saldo.minus(valor)
-        }
-    }
+    abstract fun sacar(valor: Double)
 
-    fun transferir(valor: Double, destino: Conta): Boolean {
+    open fun transferir(valor: Double, destino: Conta): Boolean {
         if (saldo >= valor) {
             saldo = saldo.minus(valor)
             destino.depositar(valor)
