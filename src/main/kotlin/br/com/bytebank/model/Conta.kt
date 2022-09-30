@@ -1,6 +1,9 @@
 package br.com.bytebank.model
 
-abstract class Conta(val titular: String, val numero: Int) {
+abstract class Conta(
+    val titular: Cliente,
+    val numero: Int
+) {
     var saldo: Double = 0.0
         protected set
 

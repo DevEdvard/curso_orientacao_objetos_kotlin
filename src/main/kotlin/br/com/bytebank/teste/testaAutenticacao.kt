@@ -10,7 +10,7 @@ fun testaAutenticacao() {
         1000
     )
 
-    val cliente = Cliente("", "", 1)
+    val cliente = Cliente("", "", senha = 1)
 
     val sistemaInterno = SistemaInterno()
     sistemaInterno.entra(eduardo, 1000)

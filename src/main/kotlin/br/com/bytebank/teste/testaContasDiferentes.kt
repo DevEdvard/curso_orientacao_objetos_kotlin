@@ -1,14 +1,15 @@
+import br.com.bytebank.model.Cliente
 import br.com.bytebank.model.ContaCorrente
 import br.com.bytebank.model.ContaPoupanca
 
 fun testaContasDiferentes() {
     val contaCorrente = ContaCorrente(
-        titular = "Eduardo",
+        titular = Cliente("Eduardo", "", senha = 1),
         numero = 1000
     )
 
     val contaPoupanca = ContaPoupanca(
-        titular = "Fran",
+        titular = Cliente("Fran", "", senha = 2),
         numero = 1001
     )
 
