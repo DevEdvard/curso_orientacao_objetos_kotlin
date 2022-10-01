@@ -7,6 +7,16 @@ abstract class Conta(
     var saldo: Double = 0.0
         protected set
 
+    companion object {
+        var total = 0
+            private set
+    }
+
+    init {
+        println("Criando conta")
+        total++
+    }
+
 //    constructor(titular: String, numero: Int, saldo: Double) : this() {
 //        this.titular = titular
 //        this.numero = numero
