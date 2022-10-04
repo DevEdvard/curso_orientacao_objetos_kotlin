@@ -1,19 +1,19 @@
-import br.com.bytebank.model.CalculadoraBonificacao
 import br.com.bytebank.model.Endereco
-import br.com.bytebank.model.Funcionario
 
 fun main() {
-    val objeto: Any = Any()
+    val endereco = Endereco(cep = "00000-000")
+    val enderecoNovo = Endereco(cep = "00000-001")
 
-    imprime(objeto)
-    imprime(Unit)
-    imprime(1)
-    imprime(1.0)
-    imprime(Endereco())
+    println(endereco.equals(endereco))
+    println(endereco.hashCode())
+    println(enderecoNovo.hashCode())
+    println(endereco)
+    println("${endereco.javaClass}@${Integer.toHexString(endereco.hashCode())}")
 
+    print(endereco.equals(enderecoNovo))
 }
 
-fun imprime(valor: Any){
+fun imprime(valor: Any) {
     println(valor)
 }
 
