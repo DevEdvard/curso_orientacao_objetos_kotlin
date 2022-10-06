@@ -3,7 +3,7 @@ package br.com.bytebank.teste
 import br.com.bytebank.model.*
 import testaContasDiferentes
 
-private fun testaObjects() {
+fun testaObjects() {
     val fran = object : Autenticavel {
         val nome: String = "Fran"
         val cpf: String = "111.111.111-11"
