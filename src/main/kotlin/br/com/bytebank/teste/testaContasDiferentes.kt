@@ -1,3 +1,4 @@
+import br.com.bytebank.exception.SaldoInsuficienteException
 import br.com.bytebank.model.Cliente
 import br.com.bytebank.model.ContaCorrente
 import br.com.bytebank.model.ContaPoupanca
@@ -25,8 +26,14 @@ fun testaContasDiferentes() {
     println("Saldo conta corrente após saque: ${contaCorrente.saldo}")
     println("Saldo conta poupança após saque: ${contaPoupanca.saldo}")
 
-    contaCorrente.transferir(100.0, contaPoupanca)
-
+    try {
+        contaCorrente.transferir(100.0, contaPoupanca)
+        println("Tranferência sucedida")
+    } catch (e: SaldoInsuficienteException){
+        println("Falha na transferência")
+        println("Saldo insuficiente")
+        e.printStackTrace()
+    }
     println("Saldo conta corrente após tranferencia: ${contaCorrente.saldo}")
     println("Saldo conta poupança após tranferencia: ${contaPoupanca.saldo}")
 }

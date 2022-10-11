@@ -1,27 +1,8 @@
+import br.com.bytebank.exception.SaldoInsuficienteException
+
 fun main() {
     println("início main")
-    try {
-        10 / 0
-    } catch (e: Exception) {
-        e.printStackTrace()
-        println("Exception foi pegada")
-    }
-
-    val entrada: String = "1.9"
-    val valor: Double? = try {
-        entrada.toDouble()
-    } catch (e: Exception) {
-        e.printStackTrace()
-        null
-    }
-
-    if(valor != null){
-        println("Valor recebido: $valor")
-    } else {
-        println("Valor inválido")
-    }
-
-    funcao1()
+    testaContasDiferentes()
     println("fim main")
 }
 
@@ -35,6 +16,8 @@ fun funcao2() {
     println("início funcao2")
     for (i in 1..5) {
         println(i)
+        val endereco = Any()
+        throw SaldoInsuficienteException()
     }
     println("fim funcao2")
 }

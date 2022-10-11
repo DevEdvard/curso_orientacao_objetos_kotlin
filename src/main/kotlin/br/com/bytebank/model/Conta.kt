@@ -1,5 +1,7 @@
 package br.com.bytebank.model
 
+import br.com.bytebank.exception.SaldoInsuficienteException
+
 abstract class Conta(
     val titular: Cliente,
     val numero: Int
@@ -31,12 +33,12 @@ abstract class Conta(
 
     abstract fun sacar(valor: Double)
 
-    open fun transferir(valor: Double, destino: Conta): Boolean {
-        if (saldo >= valor) {
+    open fun transferir(valor: Double, destino: Conta) {
+        if(saldo < valor){
+            throw SaldoInsuficienteException()
+        }
+
             saldo = saldo.minus(valor)
             destino.depositar(valor)
-            return true
-        }
-        return false
     }
 }
