@@ -1,11 +1,12 @@
 package br.com.bytebank.model
 
+import br.com.bytebank.exception.FalhaAutenticacaoException
 import br.com.bytebank.exception.SaldoInsuficienteException
 
 abstract class Conta(
     val titular: Cliente,
     val numero: Int
-) {
+) : Autenticavel {
     var saldo: Double = 0.0
         protected set
 
@@ -17,6 +18,10 @@ abstract class Conta(
     init {
         println("Criando conta")
         total++
+    }
+
+    override fun autentica(senha: Int): Boolean {
+        return titular.autentica(senha)
     }
 
 //    constructor(titular: String, numero: Int, saldo: Double) : this() {
@@ -33,12 +38,15 @@ abstract class Conta(
 
     abstract fun sacar(valor: Double)
 
-    open fun transferir(valor: Double, destino: Conta) {
-        if(saldo < valor){
-            throw SaldoInsuficienteException()
+    open fun transferir(valor: Double, destino: Conta, senha: Int) {
+        if (saldo < valor) {
+            throw SaldoInsuficienteException("O saldo é insuficiente, saldo atual: $saldo")
+        }
+        if (!autentica(senha)){
+            throw FalhaAutenticacaoException()
         }
 
-            saldo = saldo.minus(valor)
-            destino.depositar(valor)
+        saldo = saldo.minus(valor)
+        destino.depositar(valor)
     }
 }
