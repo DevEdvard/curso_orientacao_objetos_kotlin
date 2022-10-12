@@ -6,7 +6,7 @@ class Endereco(
     val bairro: String = "",
     val cidade: String = "",
     val estado: String = "",
-    val cep: String = ""
+    val cep: String? = null
 ) {
     override fun toString(): String {
         return """Endereco(logradouro='$logradouro', 

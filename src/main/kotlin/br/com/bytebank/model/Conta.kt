@@ -2,6 +2,7 @@ package br.com.bytebank.model
 
 import br.com.bytebank.exception.FalhaAutenticacaoException
 import br.com.bytebank.exception.SaldoInsuficienteException
+import java.lang.NumberFormatException
 
 abstract class Conta(
     val titular: Cliente,
@@ -45,7 +46,7 @@ abstract class Conta(
         if (!autentica(senha)){
             throw FalhaAutenticacaoException()
         }
-
+//        throw NumberFormatException
         saldo = saldo.minus(valor)
         destino.depositar(valor)
     }

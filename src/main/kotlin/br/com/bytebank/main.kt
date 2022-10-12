@@ -1,23 +1,12 @@
-import br.com.bytebank.exception.SaldoInsuficienteException
+import br.com.bytebank.model.Endereco
 
 fun main() {
-    println("início main")
-    testaContasDiferentes()
-    println("fim main")
-}
-
-fun funcao1() {
-    println("início funcao1")
-    funcao2()
-    println("fim funcao1")
-}
-
-fun funcao2() {
-    println("início funcao2")
-    for (i in 1..5) {
-        println(i)
-        val endereco = Any()
-        throw SaldoInsuficienteException()
+    var enderecoNulo: Endereco? = Endereco(logradouro = "Rua Aurora", cep = "00000-000")
+    val logradouroNovo: String? = enderecoNulo?.logradouro
+//    enderecoNulo = null
+    enderecoNulo?.let {endereco: Endereco ->
+        println(endereco.logradouro.length)
+        val tamanhoComplemento: Int = endereco.cep?.length ?: 0
+        println(tamanhoComplemento)
     }
-    println("fim funcao2")
 }
