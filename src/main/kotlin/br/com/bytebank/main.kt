@@ -1,12 +1,16 @@
-import br.com.bytebank.model.Endereco
-
 fun main() {
-    var enderecoNulo: Endereco? = Endereco(logradouro = "Rua Aurora", cep = "00000-000")
-    val logradouroNovo: String? = enderecoNulo?.logradouro
-//    enderecoNulo = null
-    enderecoNulo?.let {endereco: Endereco ->
-        println(endereco.logradouro.length)
-        val tamanhoComplemento: Int = endereco.cep?.length ?: 0
-        println(tamanhoComplemento)
+    val salarios = doubleArrayOf(1500.50, 2300.0, 5000.0, 8000.0, 10000.0)
+
+    val aumento = 1.1
+    for (indice in salarios.indices) {
+        salarios[indice] *= aumento
     }
+    println(salarios.contentToString())
+
+    salarios.forEachIndexed{ i, salario ->
+        salarios[i] *= aumento
+    }
+    println(salarios.contentToString())
+
 }
+
