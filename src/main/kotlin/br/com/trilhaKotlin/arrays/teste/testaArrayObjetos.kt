@@ -1,5 +1,8 @@
 package br.com.trilhaKotlin.arrays.teste
 
+import br.com.trilhaKotlin.arrays.funcoes.bigDecimalArrayOf
+import br.com.trilhaKotlin.arrays.funcoes.media
+import br.com.trilhaKotlin.arrays.funcoes.somatoria
 import java.math.BigDecimal
 import java.math.RoundingMode
 
@@ -8,17 +11,41 @@ fun testaArrayObjetos() {
     println(salarios.contentToString())
 
     val aumento = "1.1".toBigDecimal()
-    val salariosComAumento = salarios.map { salario ->
 
-        if (salario < "5000".toBigDecimal()) {
-            salario + "500".toBigDecimal()
-        } else {
-            (salario * aumento).setScale(2, RoundingMode.UP)
-        }
-    }.toTypedArray()
+    val salariosComAumento = salarios
+        .map { salario -> calculaAumentoRelativo(salario, aumento) }
+        .toTypedArray()
+
     println(salariosComAumento.contentToString())
+
+    val gastoInicial = salariosComAumento.somatoria()
+    println(gastoInicial)
+
+    val meses = 6.toBigDecimal()
+    val gastoTotal = salariosComAumento.fold(gastoInicial) { acumulador, salario ->
+        acumulador + (salario * meses).setScale(2, RoundingMode.UP)
+    }
+    println(gastoTotal)
+
+    val media = salariosComAumento
+        .sorted()
+        .takeLast(3)
+        .toTypedArray()
+        .media()
+    println(media)
+
+    val mediaMenoresSalarios = salariosComAumento
+        .sorted()
+        .take(3)
+        .toTypedArray()
+        .media()
+    println(mediaMenoresSalarios)
 }
 
-fun bigDecimalArrayOf(vararg valores: String): Array<BigDecimal> {
-    return Array(valores.size) { i -> valores[i].toBigDecimal() }
+private fun calculaAumentoRelativo(salario: BigDecimal, aumento: BigDecimal): BigDecimal {
+    return if (salario < "5000".toBigDecimal()) {
+        salario + "500".toBigDecimal()
+    } else {
+        (salario * aumento).setScale(2, RoundingMode.UP)
+    }
 }
