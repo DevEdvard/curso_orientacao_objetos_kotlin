@@ -1,4 +1,4 @@
-package br.com.trilhaKotlin.arrays.funcoes
+package br.com.trilhaKotlin.colecoes.array.funcoes
 
 import java.math.BigDecimal
 

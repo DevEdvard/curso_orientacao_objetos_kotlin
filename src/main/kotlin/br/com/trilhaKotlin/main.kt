@@ -1,5 +1,5 @@
-import br.com.trilhaKotlin.arrays.teste.testaArrayObjetos
+import br.com.trilhaKotlin.colecoes.list.testaLista
 
 fun main() {
-    testaArrayObjetos()
+    testaLista()
 }

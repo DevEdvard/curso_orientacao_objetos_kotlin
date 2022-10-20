@@ -1,4 +1,4 @@
-package br.com.trilhaKotlin.arrays.teste
+package br.com.trilhaKotlin.colecoes.array.teste
 
 fun testaRanges() {
     val serie: IntRange = 1.rangeTo(10)

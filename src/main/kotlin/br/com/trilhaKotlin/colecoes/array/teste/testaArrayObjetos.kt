@@ -1,8 +1,8 @@
-package br.com.trilhaKotlin.arrays.teste
+package br.com.trilhaKotlin.colecoes.array.teste
 
-import br.com.trilhaKotlin.arrays.funcoes.bigDecimalArrayOf
-import br.com.trilhaKotlin.arrays.funcoes.media
-import br.com.trilhaKotlin.arrays.funcoes.somatoria
+import br.com.trilhaKotlin.colecoes.array.funcoes.bigDecimalArrayOf
+import br.com.trilhaKotlin.colecoes.array.funcoes.media
+import br.com.trilhaKotlin.colecoes.array.funcoes.somatoria
 import java.math.BigDecimal
 import java.math.RoundingMode
 

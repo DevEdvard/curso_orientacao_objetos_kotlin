@@ -1,4 +1,4 @@
-package br.com.trilhaKotlin.arrays.teste
+package br.com.trilhaKotlin.colecoes.array.teste
 
 fun testaFuncoesAgregacao() {
     val idades: IntArray = intArrayOf(10, 12, 18, 33, 40, 67)
