@@ -1,5 +1,5 @@
-import br.com.trilhaKotlin.colecoes.list.testaLista
+import br.com.trilhaKotlin.colecoes.list.teste.testaListaImultavel
 
 fun main() {
-    testaLista()
+    testaListaImultavel()
 }

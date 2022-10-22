@@ -1,4 +1,4 @@
-package br.com.trilhaKotlin.colecoes.list
+package br.com.trilhaKotlin.colecoes.list.objetos
 
 data class Livro(
     val titulo: String,

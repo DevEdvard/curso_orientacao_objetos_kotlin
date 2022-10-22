@@ -1,34 +1,11 @@
 package br.com.trilhaKotlin.colecoes.list
 
+import br.com.trilhaKotlin.colecoes.list.funcoes.imprimeComMarcadores
+import br.com.trilhaKotlin.colecoes.list.objetos.Livro
+import br.com.trilhaKotlin.colecoes.list.teste.listaDeLivros
+
 fun testaLista() {
-    val livro1 = Livro(
-        "Grande Sertão: Veredas",
-        "João Guimarães Rosa",
-        1956
-    )
-
-    val livro2 = Livro(
-        "Minha vida de menina",
-        "Helena Morley",
-        1942,
-        "Editora A"
-    )
-
-    val livro3 = Livro(
-        "Memória Póstumas de Brás Cubas",
-        "Machado de Assis",
-        1881
-    )
-
-    val livro4 = Livro(
-        "Iracema",
-        "José de Alencar",
-        1865,
-        "Editora B"
-    )
-
-    val livros: MutableList<Livro> =
-        mutableListOf(livro1, livro2, livro3, livro4)
+    val livros = listaDeLivros()
 
     livros.add(
         Livro(
@@ -59,11 +36,4 @@ fun testaLista() {
         .sortedBy { it.anoPublicacao }
         .map { it.titulo }
     println(titulos)
-}
-
-fun List<Livro>.imprimeComMarcadores() {
-    val textoFormatado = this.joinToString("\n") {
-        " - ${it.titulo} de ${it.autor}"
-    }
-    println(" #### Lista de Livros #### \n$textoFormatado")
 }
