@@ -1,4 +1,4 @@
-package br.com.trilhaKotlin.colecoes.parte2
+package br.com.trilhaKotlin.colecoes.parte2.teste
 
 fun testaCopia() {
     val banco = BancoDeNomes()
