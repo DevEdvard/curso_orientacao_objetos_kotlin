@@ -1,9 +1,10 @@
 package br.com.trilhaKotlin.bytebank.model
 
 class SistemaInterno {
-    fun entra(admin: br.com.trilhaKotlin.bytebank.model.Autenticavel, senha: Int){
-        if(admin.autentica(senha)){
+    fun entra(admin: Autenticavel, senha: Int, autenticado: () -> Unit = {}) {
+        if (admin.autentica(senha)) {
             println("Bem-vindo ao Bytebank")
+            autenticado()
         } else {
             println("Falha na autentificação")
         }
