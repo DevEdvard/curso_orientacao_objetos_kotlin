@@ -7,18 +7,21 @@ fun main() {
 //    val enderecoMaiusculo = "${endereco.logradouro}, ${endereco.numero}".uppercase()
 //    println(enderecoMaiusculo)
 
-    Endereco(logradouro = "Rua Aurora", numero = 34).let { endereco ->
-        "${endereco.logradouro}, ${endereco.numero}".uppercase()
-    }.let(::println)
+    val endereco1 = Endereco(logradouro = "Rua Aurora", numero = 34)
+        .also { println("Criando endereço") }
+//        .run {
+//            "$logradouro, $numero".uppercase()
+//        }.let(::println)
+        with(endereco1) {
+            "$logradouro, $numero".uppercase()
+        }.let(::println)
 
-    listOf(
-        Endereco(logradouro = "Av. Paulista"),
+    listOf(Endereco(logradouro = "Av. Paulista"),
         Endereco(),
-        Endereco("Rua Vergueiro")
-    )
+        Endereco("Rua Vergueiro"))
         .filter { endereco -> endereco.logradouro.isNotEmpty() }
         .let(::println)
-    //.let(block = (::println)
+    //.let(block = (::println))
 
     //soma(1, 5, resultado = (::println))
     soma(1, 5) {
