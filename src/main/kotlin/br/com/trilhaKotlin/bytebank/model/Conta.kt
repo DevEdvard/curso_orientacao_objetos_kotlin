@@ -16,7 +16,6 @@ abstract class Conta(
     }
 
     init {
-        println("Criando conta")
         br.com.trilhaKotlin.bytebank.model.Conta.Companion.total++
     }
 
